@@ -36,28 +36,49 @@ fetch("api/generate", requestOptions)
     }
    
   return (
-    <div className='mx-auto max-w-lg bg-purple-100 my-16 p-8 rounded-lg flex flex-col gap-4'>
-      <h1 className='font-bold text-2xl'>Generate your short URLs</h1>
+<div className="min-h-[95vh] bg-gradient-to-r from-pink-100 via-pink-200 to-gray-100 flex items-start justify-center pt-10">
+  <div className='mx-auto max-2xl bg-purple-100 my-16 p-8 rounded-lg shadow-lg flex flex-col gap-4'>
+      
+<h1 className='font-bold text-4xl text-purple-700 text-center'>
+Generate Your Short URLs
+</h1>
 
-  <div className='flex flex-col gap-2'>
-    <input type="text"
-    value={url} 
-      className='bg-white p-4 rounded-md focus:outline-purple-600'
-      placeholder='Enter your URL' 
-      onChange={e =>{seturl(e.target.value)}}/>
+<div className='flex flex-col gap-3'>
 
-    <input type="text" 
-    value={shorturl}
-    className='bg-white p-4 rounded-md focus:outline-purple-600'
-      placeholder='Enter your preferred short URL text'
-       onChange={e =>{setshorturl(e.target.value)}}/>
+<input
+type="text"
+value={url}
+className='bg-white p-4 rounded-md outline-none  hover:scale-105 transition-all duration-400 ease-in-out'
+placeholder='Enter your URL'
+onChange={e => seturl(e.target.value)}
+/>
 
-    <button onClick={generate} className='bg-purple-600 font-bold  shodow-lg text-white p-3 my-3 py-1 rounded-md'>Generate</button>
+<input
+type="text"
+value={shorturl}
+className='bg-white p-4 rounded-md   hover:scale-105 outline-none transition-all duration-400 ease-in-out'
+placeholder='Enter your preferred short URL text'
+onChange={e => setshorturl(e.target.value)}
+/>
 
-  </div>
-  {generated && <>
-    <span className='font-bold text-lg'>Your link:</span><code> <Link target="_blank" href={generated}>{generated}</Link>
-        </code></>}
+<button
+onClick={generate}
+className="bg-purple-500 font-bold shadow-lg text-white p-3 rounded-md hover:bg-purple-600 hover:scale-105 transition-all duration-400 ease-in-out">
+Generate Short Link
+</button>
+
+</div>
+
+{generated && (
+<>
+<span className='font-bold text-lg'>Your link:</span>
+<code>
+<Link target="_blank" href={generated}>{generated}</Link>
+</code>
+</>
+)}
+
+</div>
 </div>
   )
 }

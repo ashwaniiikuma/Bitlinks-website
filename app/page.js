@@ -9,24 +9,47 @@ const poppins = Poppins({
 
 export default function Home() {
   return (
-    <main className="bg-purple-100">
-      <section className="grid grid-cols-2 h-[50vh]">
-        <div className=" flex flex-col gap-4 items-center justify-center">
-          <p className={`text-3xl font-bold ${poppins.className}`}>
-            The best URL sortner in the market
-          </p>
-          <p className="px-50 text-center">
-            we are the most straitforward URL in the world. Most of the URL shortner will track or your are ask you to give your details for login. we undersand your needs and hence we have created this URL shortner. 
-          </p>
-           <div className='flex gap-3 justify-start'>
-                <Link href="/shorten" ><button className='bg-purple-500 shadow-lg p-3 text-white rounded-lg py-2 font-bold'>Try Now</button></Link>
-                <Link href="/Github" ><button className='bg-purple-500 shadow-lg p-3 text-white rounded-lg py-2 font-bold'>Github</button></Link>
-            </div>
-        </div>
-        <div className="flex justify-start relative">
-      <Image className="mix-blend-darken" alt="an Image of a vector" src={"/vector.jpg"} fill={true} />
-        </div>
-      </section>
-    </main>
+   <main className="">
+  <section className="grid grid-cols-1 md:grid-cols-2 min-h-[70vh]">
+
+    {/* Left Content */}
+    <div className="flex flex-col gap-5 items-center justify-center text-center px-6 md:px-10 py-20">
+      
+      <p className={`text-2xl md:text-3xl font-bold py-5 ${poppins.className}`}>
+        The best URL shortener in the market
+      </p>
+
+      <p className="text-gray-700  max-w-2xl md:p-5 w-7xl py-10">
+        We are the most straightforward URL shortener on the web. Unike others, we prioritize your privacy by not by not tracking your activites or requiring  login details.  
+      </p>
+
+      <div className="flex flex-col sm:flex-row gap-3 py-20">
+        <Link href="/shorten">
+          <button className="bg-purple-500 shadow-lg px-6 py-2 text-white rounded-lg font-bold hover:bg-purple-600 transition">
+            Try Now
+          </button>
+        </Link>
+
+        <Link href="/Github">
+          <button className="bg-purple-500 shadow-lg px-6 py-2 text-white rounded-lg font-bold hover:bg-purple-600 transition">
+            Github
+          </button>
+        </Link>
+      </div>
+
+    </div>
+
+    {/* Right Image */}
+    <div className="relative h-[200px] md:h-auto w-full">
+      <Image
+        className="object-contain mix-blend-darken"
+        alt="vector illustration"
+        src="/vector.jpg"
+        fill
+      />
+    </div>
+
+  </section>
+</main>
   );
 }

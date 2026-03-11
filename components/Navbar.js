@@ -21,7 +21,7 @@ const Navbar = () => {
                 </button>
             </Link>
 
-            <Link href="/Github" >
+            <Link href="https://github.com/ashwaniiikuma/Bitlinks-website" target="_blank">
                 <button className='bg-purple-500 shadow-lg px-3 py-1 rounded-lg font-bold'>
                     Github
                 </button>

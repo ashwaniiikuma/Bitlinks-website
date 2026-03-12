@@ -23,17 +23,17 @@ const requestOptions = {
   redirect: "follow"
 };
 
-fetch("api/generate", requestOptions)
+fetch(`${process.env.NEXT_PUBLIC_HOST}/api/generate`, requestOptions)
   .then((response) => response.json())
   .then((result) => {
-    setGenerated(`${process.env.NEXT_PUBLIC_HOST}/${shorturl}`)
+    setGenerated(`${process.env.NEXT_PUBLIC_HOST}/${result.shorturl}`)
     seturl("")
     setshorturl("")
     console.log(result)
-    alert(result.message)
+    alert(result.message || "Short URL generated!")
   })
   .catch((error) => console.error(error));
-    }
+}
    
   return (
 <div className="min-h-[95vh] bg-gradient-to-r from-pink-100 via-pink-200 to-gray-100 flex items-start justify-center pt-10">

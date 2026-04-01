@@ -1,150 +1,98 @@
-// export default function About() {
-//   return (
-//     <div className="min-h-screen bg-purple-50 px-25 py-20">
-//       <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl p-10 space-y-10">
-
-//         {/* Heading */}
-//         <div>
-//           <h1 className="text-4xl font-bold text-purple-700 mb-4 ">
-//             About BitLinks
-//           </h1>
-//           <p className="text-gray-700 text-lg">
-//             BitLinks is a modern URL shortening platform designed to make
-//             sharing links faster, cleaner, and more efficient.
-//           </p>
-//         </div>
-
-//         {/* Mission */}
-//         <div>
-//           <h2 className="text-2xl font-semibold text-purple-600 mb-3">
-//              Our Mission
-//           </h2>
-//           <p className="text-gray-700">
-//             Our mission is to simplify digital sharing by providing a fast,
-//             reliable, and minimal link management solution built with modern
-//             web technologies.
-//           </p>
-//         </div>
-
-//         {/* How It Works */}
-//         <div>
-//           <h2 className="text-2xl font-semibold text-purple-600 mb-3">
-//              How It Works
-//           </h2>
-//           <ol className="list-decimal list-inside text-gray-700 space-y-2">
-//             <li>Paste your long URL</li>
-//             <li>Generate a unique short link</li>
-//             <li>Share it anywhere</li>
-//             <li>Users are instantly redirected to the original URL</li>
-//           </ol>
-//         </div>
-
-//         {/* Features */}
-//         <div>
-//           <h2 className="text-2xl font-semibold text-purple-600 mb-3">
-//             Key Features
-//           </h2>
-//           <ul className="list-disc list-inside text-gray-700 space-y-2">
-//             <li> Instant URL shortening</li>
-//             <li> Fast redirection</li>
-//             <li> Fully responsive design</li>
-//             <li> Clean and minimal interface</li>
-//             <li> Structured backend routing</li>
-//           </ul>
-//         </div>
-
-//         {/* Tech Stack */}
-//         <div>
-//           <h2 className="text-2xl font-semibold text-purple-600 mb-3">
-//              Technology Stack
-//           </h2>
-//           <ul className="list-disc list-inside text-gray-700 space-y-2">
-//             <li>Next.js (App Router)</li>
-//             <li>Tailwind CSS</li>
-//             <li>MongoDB</li>
-//             <li>Node.js</li>
-//           </ul>
-//         </div>
-
-//         {/* Future Improvements */}
-//         <div>
-//           <h2 className="text-2xl font-semibold text-purple-600 mb-3">
-//              Future Improvements
-//           </h2>
-//           <ul className="list-disc list-inside text-gray-700 space-y-2">
-//             <li> Click analytics dashboard</li>
-//             <li> User authentication system</li>
-//             <li> Custom branded URLs</li>
-//             <li> Link performance tracking</li>
-//           </ul>
-//         </div>
-
-//         {/* Footer Note */}
-//         <div className="border-t pt-6">
-//           <p className="text-gray-600">
-//             BitLinks was built as a full-stack learning project to demonstrate
-//             routing, database integration, API handling, and modern UI
-//             development using Next.js.
-//           </p>
-//         </div>
-
-//       </div>
-//     </div>
-//   );
-// }
-
 export default function About() {
   return (
-    <div className="min-h-screen bg-purple-50 px-4 sm:px-8 lg:px-16 py-10">
-      <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl p-6 sm:p-8 lg:p-10 space-y-8">
+    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-pink-100 to-purple-100 px-4 py-10">
 
-        <div>
-          <h1 className="text-3xl sm:text-4xl font-bold text-purple-700 mb-4">
-            About BitLinks
-          </h1>
-          <p className="text-gray-700 text-base sm:text-lg">
-            BitLinks is a modern URL shortening platform designed to make
-            sharing links faster, cleaner, and more efficient.
-          </p>
-        </div>
-
-        <div>
-          <h2 className="text-xl sm:text-2xl font-semibold text-purple-600 mb-3">
-            Our Mission
-          </h2>
-          <p className="text-gray-700">
-            Our mission is to simplify digital sharing by providing a fast,
-            reliable, and minimal link management solution built with modern
-            web technologies.
-          </p>
-        </div>
-
-        <div>
-          <h2 className="text-xl sm:text-2xl font-semibold text-purple-600 mb-3">
-            How It Works
-          </h2>
-          <ol className="list-decimal list-inside text-gray-700 space-y-2">
-            <li>Paste your long URL</li>
-            <li>Generate a unique short link</li>
-            <li>Share it anywhere</li>
-            <li>Users are instantly redirected</li>
-          </ol>
-        </div>
-
-        <div>
-          <h2 className="text-xl sm:text-2xl font-semibold text-purple-600 mb-3">
-            Key Features
-          </h2>
-          <ul className="list-disc list-inside text-gray-700 space-y-2">
-            <li>Instant URL shortening</li>
-            <li>Fast redirection</li>
-            <li>Responsive design</li>
-            <li>Clean UI</li>
-            <li>Structured routing</li>
-          </ul>
-        </div>
-
+      {/* HERO */}
+      <div className="text-center max-w-3xl mx-auto mb-16">
+        <h1 className="text-3xl sm:text-4xl font-bold text-purple-600 mb-4">
+          About BitLinks
+        </h1>
+        <p className="text-gray-600 text-lg">
+          A modern URL shortener that allows users to create, manage, edit, and track links efficiently with a secure and user-friendly dashboard.
+        </p>
       </div>
+
+      {/* MISSION + VISION */}
+      <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-16">
+        <div className="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition">
+          <h2 className="text-xl font-bold text-purple-600 mb-2">🚀 Our Mission</h2>
+          <p className="text-gray-600">
+            To provide a powerful yet simple platform where users can shorten, edit, and manage their links effortlessly.
+          </p>
+        </div>
+
+        <div className="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition">
+          <h2 className="text-xl font-bold text-purple-600 mb-2">🌍 Our Vision</h2>
+          <p className="text-gray-600">
+            To build a scalable and reliable link management system used globally by individuals and businesses.
+          </p>
+        </div>
+      </div>
+
+      {/* HOW IT WORKS */}
+      <div className="max-w-4xl mx-auto mb-16">
+        <h2 className="text-2xl font-bold text-center text-purple-700 mb-8">
+          How It Works
+        </h2>
+
+        <div className="space-y-6">
+          {[
+            "Paste your long URL",
+            "Generate a custom short link",
+            "Login to access your dashboard",
+            "Edit, delete, copy and search your links",
+            "Track clicks and manage everything easily"
+          ].map((step, index) => (
+            <div key={index} className="flex items-center gap-4">
+              <div className="bg-purple-600 text-white w-8 h-8 flex items-center justify-center rounded-full font-bold">
+                {index + 1}
+              </div>
+              <p className="text-gray-700">{step}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* FEATURES */}
+      <div className="max-w-5xl mx-auto mb-16">
+        <h2 className="text-2xl font-bold text-center text-purple-700 mb-8">
+          Key Features
+        </h2>
+
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {[
+            "Instant URL Shortening",
+            "Secure Google Login (NextAuth)",
+            "Dashboard for managing links",
+            "Edit Short URLs",
+            "Delete Links Anytime",
+            "Search & Filter Links",
+            "Copy to Clipboard",
+            "Contact Form with Email (Nodemailer)",
+            "Fast Redirection"
+          ].map((feature, i) => (
+            <div
+              key={i}
+              className="bg-white p-5 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition"
+            >
+              <p className="text-gray-700 font-semibold">{feature}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* TECH STACK */}
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-2xl font-bold text-purple-700 mb-4">
+          Technologies Used
+        </h2>
+        <p className="text-gray-600">
+          Built using Next.js (frontend + backend), MongoDB for database,
+          NextAuth for authentication, Nodemailer for sending emails,
+          and Tailwind CSS for modern UI design.
+        </p>
+      </div>
+
     </div>
   );
 }

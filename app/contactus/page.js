@@ -63,7 +63,7 @@ const Page = () => {
         </h2>
 
         <p className="text-center text-gray-500 mb-6">
-          Have a question or feedback? We'd love to hear from you.
+          Have a question or feedback? We&apos;d love to hear from you.
         </p>
 
         {success && (

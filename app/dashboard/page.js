@@ -14,16 +14,17 @@ export default function Dashboard() {
 
     useEffect(() => {
     if (session) {
+        const fetchLinks = async () => {
+    const res = await fetch("/api/my-links")
+    const data = await res.json()
+    setLinks(data)
+  }
+
       fetchLinks()
     }
     //eslint-disable-next-line react-hook/exaustive-deps
   }, [session, ])
 
-  const fetchLinks = async () => {
-    const res = await fetch("/api/my-links")
-    const data = await res.json()
-    setLinks(data)
-  }
 
 
 

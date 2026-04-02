@@ -13,19 +13,17 @@ export default function Dashboard() {
   const [search, setSearch] = useState("")
 
     useEffect(() => {
-    if (session) {
-        const fetchLinks = async () => {
-    const res = await fetch("/api/my-links")
-    const data = await res.json()
-    setLinks(data)
-  }
-
-      fetchLinks()
+  if (session) {
+    const fetchLinks = async () => {
+      const res = await fetch("/api/my-links")
+      const data = await res.json()
+      setLinks(data)
     }
-    //eslint-disable-next-line react-hook/exaustive-deps
-  }, [session, ])
 
-
+    fetchLinks()
+  }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [session])
 
 
   const deleteLink = async (shorturl) => {

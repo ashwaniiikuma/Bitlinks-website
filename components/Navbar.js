@@ -38,6 +38,7 @@ export default function Navbar() {
           <Link href="/shorten"><li>Shorten</li></Link>
           <Link href="/contactus"><li>Contact Us</li></Link>
           <Link href="/dashboard"><li>Your links</li></Link>
+          <Link href="/privacy"><li>Privacy</li></Link>
 
           <li className='flex gap-2'>
             <Link href="/shorten">
@@ -106,6 +107,7 @@ export default function Navbar() {
           <Link href="/shorten" onClick={() => setOpen(false)}>Shorten</Link>
           <Link href="/contactus" onClick={() => setOpen(false)}>Contact Us</Link>
           <Link href="/dashboard" onClick={() => setOpen(false)}>Your links</Link>
+          <Link href="/privacy" onClick={() => setOpen(false)}>Privacy</Link>
 
           <Link href="/shorten" onClick={() => setOpen(false)}>
             <button className="bg-purple-500 px-3 py-1 rounded-lg">
@@ -156,4 +158,7 @@ export default function Navbar() {
       )}
     </nav>
   )
+  
 }
+
+

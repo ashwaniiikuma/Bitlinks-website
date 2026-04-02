@@ -4,7 +4,6 @@
 
 import { useSession, signIn } from "next-auth/react"
 import { useEffect, useState } from "react"
-import { useCallback } from "react"
 
 export default function Dashboard() {
   const { data: session } = useSession()
@@ -13,19 +12,20 @@ export default function Dashboard() {
   const [newShort, setNewShort] = useState("")
   const [search, setSearch] = useState("")
 
-  
-
-  const fetchLinks = useCallback (async () => {
-    const res = await fetch("/api/my-links")
-    const data = await res.json()
-    setLinks(data)
-  }, [])
-
-  useEffect(() => {
+    useEffect(() => {
     if (session) {
       fetchLinks()
     }
-  }, [session, fetchLinks])
+    //eslint-disable-next-line react-hook/exaustive-deps
+  }, [session, ])
+
+  const fetchLinks = async () => {
+    const res = await fetch("/api/my-links")
+    const data = await res.json()
+    setLinks(data)
+  }
+
+
 
   const deleteLink = async (shorturl) => {
     const res = await fetch("/api/delete-link", {

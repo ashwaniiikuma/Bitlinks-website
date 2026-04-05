@@ -11,15 +11,7 @@ export const authOptions = {
 
   secret: process.env.NEXTAUTH_SECRET,
 
-  // pages: {
-  //   signIn: "/", // optional (custom login page)
-  // },
-
-  // callbacks: {
-  //   async redirect({ url, baseUrl }) {
-  //     return baseUrl + "/dashboard" // 🔥 after login redirect here
-  //   },
-  // },
+ 
 }
 
 const handler = NextAuth(authOptions)

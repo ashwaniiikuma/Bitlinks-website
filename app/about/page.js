@@ -15,14 +15,14 @@ export default function About() {
       {/* MISSION + VISION */}
       <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-16">
         <div className="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition">
-          <h2 className="text-xl font-bold text-purple-600 mb-2">🚀 Our Mission</h2>
+          <h2 className="text-xl font-bold text-purple-600 mb-2"> Our Mission</h2>
           <p className="text-gray-600">
             To provide a powerful yet simple platform where users can shorten, edit, and manage their links effortlessly.
           </p>
         </div>
 
         <div className="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition">
-          <h2 className="text-xl font-bold text-purple-600 mb-2">🌍 Our Vision</h2>
+          <h2 className="text-xl font-bold text-purple-600 mb-2"> Our Vision</h2>
           <p className="text-gray-600">
             To build a scalable and reliable link management system used globally by individuals and businesses.
           </p>

@@ -4,6 +4,7 @@
 
 import { useSession, signIn } from "next-auth/react"
 import { useEffect, useState } from "react"
+import { Copy, Pencil, Trash2} from "lucide-react";
 
 export default function Dashboard() {
   const { data: session } = useSession()
@@ -11,6 +12,7 @@ export default function Dashboard() {
   const [editing, setEditing] = useState(null)
   const [newShort, setNewShort] = useState("")
   const [search, setSearch] = useState("")
+  const [copied, setCopied] = useState(false);
 
     useEffect(() => {
   if (session) {
@@ -88,11 +90,13 @@ export default function Dashboard() {
 
   return (
     <div className="max-w-4xl mx-auto mt-10 p-5">
-      <h1 className="text-2xl font-bold mb-5">Your Links</h1>
+      <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-5">Your Links</h1>
       <input type="text" placeholder="Search your links..." value={search} onChange={(e) => setSearch(e.target.value)}
-      className="w-full mb-4 px-2 py-2 border rounded-md focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition" />
+      className="w-full pl-10 pr-3 py-2 rounded-xl border border-gray-300 
+hover:shadow-md focus:outline-none focus:ring-2 focus:ring-purple-200 
+focus:border-purple-200 transition-all duration-200" />
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 py-6">
         {filteredLinks.map((link, index) => (
           <div
             key={index}
@@ -129,36 +133,46 @@ export default function Dashboard() {
               </p>
             </div>
 
-            <div className="flex justify-around gap-2 flex-wrap">
-              <button
-              
-                onClick={() => {
-                  navigator.clipboard.writeText(
-                    `${process.env.NEXT_PUBLIC_HOST}/${link.shorturl}`
-                  )
-                  alert("Copied!")
-                }}
-                className="bg-purple-500 text-white px-3 py-1 md:px-1 rounded-md hover:bg-purple-600"
-              >
-                Copy
-              </button>
+           <div className="flex items-center gap-2">
 
-              <button
-                className="bg-amber-500 text-white px-3 py-1 md:px-1 rounded-md hover:bg-amber-600"
-                onClick={() => {
-                  const ok = confirm("Are you sure you want to delete this link?")
-                  if (ok) {
-                    deleteLink(link.shorturl)
-                  }
-                }}
-              >
-                Delete
-              </button>
-              <button onClick={()=>{
-                setEditing(link.shorturl)
-                setNewShort(link.shorturl)
-              }} className="bg-blue-300 text-white px-3 py-1 rounded-md">Edit</button>
-            </div>
+  {/* COPY */}
+  <button
+    onClick={() => {
+      navigator.clipboard.writeText(
+        `${process.env.NEXT_PUBLIC_HOST}/${link.shorturl}`
+      );
+      alert("Copied!");
+    }}
+    className="p-1 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition-all duration-200 hover:scale-105"
+  >
+    <Copy size={16} />
+  </button>
+
+  {/* DELETE */}
+  <button
+    onClick={() => {
+      const ok = confirm("Are you sure you want to delete this link?");
+      if (ok) {
+        deleteLink(link.shorturl);
+      }
+    }}
+    className="p-1 bg-red-500 text-white rounded-md hover:bg-red-600 transition-all duration-200 hover:scale-105"
+  >
+    <Trash2 size={16} />
+  </button>
+
+  {/* EDIT */}
+  <button
+    onClick={() => {
+      setEditing(link.shorturl);
+      setNewShort(link.shorturl);
+    }}
+    className="p-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-all duration-200 hover:scale-105"
+  >
+    <Pencil size={16} />
+  </button>
+
+</div>
           </div>
         ))}
       </div>

@@ -12,7 +12,6 @@ export default function Dashboard() {
   const [editing, setEditing] = useState(null)
   const [newShort, setNewShort] = useState("")
   const [search, setSearch] = useState("")
-  const [copied, setCopied] = useState(false);
 
     useEffect(() => {
   if (session) {

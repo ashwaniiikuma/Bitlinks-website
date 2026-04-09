@@ -1,10 +1,10 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import { MongoDBAdapter } from "@auth/mongodb-adapter"
+import clientPromise from "@/lib/mongodb" // <--- Ye import hona bahut zaroori hai
 
-// 1. authOptions ko alag se export karein
 export const authOptions = {
-  adapter: MongoDBAdapter(clientPromise), // Ye line user save karegi
+  adapter: MongoDBAdapter(clientPromise), 
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
@@ -12,11 +12,9 @@ export const authOptions = {
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  // Agar aap database use kar rahe hain toh yahan adapter add karein
+  // Note: Session strategy database adapter ke saath apne aap 'database' ho jati hai
 }
 
-// 2. Handler banayein
 const handler = NextAuth(authOptions)
 
-// 3. GET aur POST ko export karein
 export { handler as GET, handler as POST }

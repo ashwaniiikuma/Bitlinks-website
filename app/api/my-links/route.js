@@ -13,8 +13,8 @@ export async function GET(req) {
 
     const client = await clientPromise
     const db = client.db("bitlinks") 
-
     const links = await db
+    
       .collection("url")
       .find({ email: session.user.email })
       .toArray()

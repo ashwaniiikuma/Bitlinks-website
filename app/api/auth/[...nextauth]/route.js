@@ -13,15 +13,24 @@ export const authOptions = {
 
   trustHost: true,
 
-  useSecureCookies: true, // 🔥 ADD THIS
-
   session: {
     strategy: "jwt",
   },
 
+  debug: true, // 🔥 IMPORTANT
+
   callbacks: {
-    async signIn() {
+    async signIn({ user, account, profile }) {
+      console.log("SIGNIN:", user, account, profile)
       return true
+    },
+
+    async redirect({ url, baseUrl }) {
+      return baseUrl // 🔥 force safe redirect
+    },
+
+    async session({ session, token }) {
+      return session
     },
   },
 }

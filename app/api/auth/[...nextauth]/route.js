@@ -3,6 +3,7 @@ import GoogleProvider from "next-auth/providers/google"
 
 // 1. authOptions ko alag se export karein
 export const authOptions = {
+  adapter: MongoDBAdapter(clientPromise), // Ye line user save karegi
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,

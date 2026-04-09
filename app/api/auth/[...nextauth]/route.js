@@ -11,11 +11,18 @@ export const authOptions = {
 
   secret: process.env.NEXTAUTH_SECRET,
 
- trustHost: true,
+  session: {
+    strategy: "jwt",
+  },
 
- session: {
-  strategy: "jwt",
- },
+ callbacks:{
+  async session({session, token}) {
+    return session
+  },
+  async jwt({token, account, profile}){
+    return token
+  }
+  }
 }
 
 const handler = NextAuth(authOptions)

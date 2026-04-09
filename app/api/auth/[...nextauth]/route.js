@@ -1,5 +1,6 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
+import { MongoDBAdapter } from "@auth/mongodb-adapter"
 
 // 1. authOptions ko alag se export karein
 export const authOptions = {

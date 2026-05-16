@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SessionWrapper from "@/components/SessionWrapper";
 import Script from "next/script"
+import LoadingHandler from "@/components/loading";
 
 <Script src="https://cdn.lordicon.com/lordicon.js" strategy="beforeInteractive" />
 
@@ -25,12 +26,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <SessionWrapper>
+      
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        
-        <Navbar/>{children}  </body>
+        <SessionWrapper>
+      <LoadingHandler>
+        <Navbar/>
+        <main>{children}  </main>
+        </LoadingHandler>
       </SessionWrapper>
-   
+    </body>
   
      </html>
   );

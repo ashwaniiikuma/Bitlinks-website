@@ -21,6 +21,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Bitlinks - Your trusted URL shortener",
   description: "bitlinks helps you shorten your Urls easly",
+  icons: {
+ icon: "/favicon.ico",
+  }
 };
 
 export default function RootLayout({ children }) {

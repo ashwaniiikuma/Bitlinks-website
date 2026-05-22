@@ -80,7 +80,7 @@ We deliver a reliable URL shortening solution that enables users to create, moni
         </div>
 
         {/* Right Image */}
-        <div className="relative gap-2 flex items-center justify-center min-h-[300px] md:min-h-auto w-full md:mt-0 pt-4 md:pt-20 md:gap-2 pb-10 md:pb-0">
+        <div className="relative gap-2 flex items-center justify-center min-h-[300px] md:min-h-auto w-full md:mt-0 pt-1 md:pt-20 md:gap-2 pb-10 md:pb-0">
   <motion.div
     animate={{ y: [0, -10, 0] }}
     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}

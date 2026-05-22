@@ -1,11 +1,15 @@
+import { main } from "framer-motion/client"
+
 export default function About() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-pink-100 to-purple-100 px-4 py-10">
+    <main className="min-h-screen bg-gray-50/50 py-16 px-4 sm:px-6 lg:px-15 text-gray-850">
+
+    <div className="max-w-5xl mx-auto space-y-20">
 
       {/* HERO */}
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <h1 className="text-3xl sm:text-4xl font-bold text-purple-600 mb-4">
-          About BitLinks
+      <div className="text-center max-w-3xl mx-auto space-y-4">
+        <h1 className="text-4xl  font-extrabold text-gray-900 sm:text-5xl mb-4">
+          About <span className="text-purple-600">BitLinks</span> 
         </h1>
         <p className="text-gray-600 text-lg">
           A modern URL shortener that allows users to create, manage, edit, and track links efficiently with a secure and user-friendly dashboard.
@@ -82,17 +86,18 @@ export default function About() {
       </div>
 
       {/* TECH STACK */}
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-2xl font-bold text-purple-700 mb-4">
+      <div className="bg-purple-800 text-purple-100 rounded-3xl p-8 text-center space-y-4 shadow-xl">
+        <h2 className="text-xl font-bold text-white ">
           Technologies Used
         </h2>
-        <p className="text-gray-600">
+        <p className="text-sm max-v-3xl mx-auto loading-relaxed  text-purple-200">
           Built using Next.js (frontend + backend), MongoDB for database,
           NextAuth for authentication, Nodemailer for sending emails,
-          and Tailwind CSS for modern UI design.
+          and Tailwind CSS for modern UI design, Framer Motion.
         </p>
       </div>
 
     </div>
+    </main>
   );
 }

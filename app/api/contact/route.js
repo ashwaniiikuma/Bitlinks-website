@@ -15,14 +15,7 @@ export async function POST(req) {
       )
     }
 
-    // ✅ Testing
-    // console.log(" New Contact Message:")
-    // console.log("Name:", name)
-    // console.log("Email:", email)
-    // console.log("Message:", message)
-
-    // Nodemailer entery hogi
-    // Transporter (Gmail setup)
+ 
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {

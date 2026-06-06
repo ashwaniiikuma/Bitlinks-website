@@ -1,7 +1,16 @@
 "use client"
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
-export default function SplashScreen() {
+export default function SplashScreen({finishLoading, duration = 2500}) {
+useEffect(() =>{
+    const timeout = setTimeout(() =>{
+        finishLoading();
+    }, duration);
+
+    return () =>clearTimeout(timeout);
+}, [finishLoading, duration]);
+
     return (
         <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white overflow-hidden">
             {/* Main Logo Container - items-baseline is key here */}

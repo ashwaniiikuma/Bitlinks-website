@@ -1,26 +1,69 @@
 "use client";
 import { useState, useEffect } from "react";
 import SplashScreen from "./splashScreen";
+import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function LoadingHandler({ children }) {
-  const [loading, setLoading] = useState(true);
+  const pathname = usePathname();
+  const [isLoading, setIsLoading] = useState(true);
+  const [duration, setDuration] = useState(2500);
 
-  useEffect(() =>{
-    const hasSeenSplash = sessionStorage.getItem("hasSeenSplash");
+useEffect(()=>{
 
-    if(hasSeenSplash){
-      setLoading(false);
-    }else{
-      const timer = setTimeout(() =>{
-        setLoading(false);
-        sessionStorage.setItem("hasSeenSplash", "true");
-      }, 3500);
+  const isMainWebsitePage = 
+  pathname === "/" ||
+   pathname.startsWith("/dashboard") ||
+   pathname.startsWith("/about") ||
+   pathname.startsWith("/contactus") ||
+   pathname.startsWith("/privacy") ||
+   pathname.startsWith("/shorten");
 
-      return () => clearTimeout(timer);
-    }
-  }, []);
+   if(!isMainWebsitePage){
 
-  if (loading) return <SplashScreen/>
-  return <div className="animate-in fade-in duration-700">{children}</div>
+    setDuration(0);
+    setIsLoading(false);
+   }else{
+    setDuration(2500);
+   }
+},[pathname]);
 
+return(
+  <>
+  <AnimatePresence mode="wait">
+    {isLoading && duration > 0 ? (
+      <SplashScreen key="loader" finishLoading={() => setIsLoading(false)} duration={duration}/>
+    ) : (
+      <motion.div
+      key = "content"
+      initial={duration > 0 ? {opacity: 0}: {opacity: 1}}
+      animate={{opacity:1}}
+      transition={{duration: 0.3}}
+      >
+        {children}
+      </motion.div>
+    )}
+
+  </AnimatePresence>
+  </>
+)
+  
 }
+
+// useEffect(() =>{
+  //   const hasSeenSplash = sessionStorage.getItem("hasSeenSplash");
+
+  //   if(hasSeenSplash){
+  //     setLoading(false);
+  //   }else{
+  //     const timer = setTimeout(() =>{
+  //       setLoading(false);
+  //       sessionStorage.setItem("hasSeenSplash", "true");
+  //     }, 2500);
+
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, []);
+
+  // if (loading) return <SplashScreen/>
+  // return <div className="animate-in fade-in duration-700">{children}</div>

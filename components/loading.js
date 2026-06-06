@@ -19,7 +19,7 @@ useEffect(()=>{
    pathname.startsWith("/privacy") ||
    pathname.startsWith("/shorten");
 
-   const hasSeenSplash = typeof window !=="undifine"? sessionStorage.getItem(hasSeenSplash) : null;
+   const hasSeenSplash = typeof window !== "undefined"? sessionStorage.getItem(hasSeenSplash) : null;
 
    if(!isMainWebsitePage){
 
@@ -32,7 +32,7 @@ useEffect(()=>{
    }else{
     setDuration(2500);
     
-    sessionStorage.getItem("hasSeenSplash", "true");
+    sessionStorage.setItem("hasSeenSplash", "true");
    }
 },[pathname]);
 

@@ -23,8 +23,14 @@ useEffect(()=>{
 
     setDuration(0);
     setIsLoading(false);
+   }else if(hasSeenSplash){
+    setDuration(0);
+    setIsLoading(false);
+
    }else{
     setDuration(2500);
+    
+    sessionStorage.getItem("hasSeenSplash", "true");
    }
 },[pathname]);
 
@@ -46,7 +52,7 @@ return(
 
   </AnimatePresence>
   </>
-)
+);
   
 }
 

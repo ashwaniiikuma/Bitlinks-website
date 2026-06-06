@@ -19,6 +19,8 @@ useEffect(()=>{
    pathname.startsWith("/privacy") ||
    pathname.startsWith("/shorten");
 
+   const hasSeenSplash = typeof window !=="undifine"? sessionStorage.getItem(hasSeenSplash) : null;
+
    if(!isMainWebsitePage){
 
     setDuration(0);

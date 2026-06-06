@@ -1,4 +1,5 @@
 
+
 import { redirect } from "next/navigation"
 import clientPromise from "@/lib/mongodb"
 
@@ -24,8 +25,8 @@ export default async function Page({ params }) {
     { returnDocument: "after" }
   )
   await collection.updateOne(
-  { shorturl: shorturl },
-  { $inc: { visit: 1, visit: 1 } }
+  { shorturl: params.shorturl },
+  { $inc: { visit: 1 } }
 )
   //Redirect
   redirect(doc.url)

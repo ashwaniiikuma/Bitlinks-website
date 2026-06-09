@@ -6,6 +6,7 @@ import SessionWrapper from "@/components/SessionWrapper";
 import Script from "next/script"
 import LoadingHandler from "@/components/loading";
 
+
 <Script src="https://cdn.lordicon.com/lordicon.js" strategy="beforeInteractive" />
 
 const geistSans = Geist({
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
         <main>{children}  </main>
         </LoadingHandler>
       </SessionWrapper>
+      
     </body>
   
      </html>

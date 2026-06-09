@@ -33,6 +33,10 @@ export default function Navbar() {
 
         {/* DESKTOP MENU */}
         <ul className='hidden md:flex items-center gap-4 text-sm md:text-base'>
+         
+          <div className='flex items-center gap-4' >
+          
+          </div>
           <Link href="/"><li>Home</li></Link>
           <Link href="/about"><li>About</li></Link>
           <Link href="/shorten"><li>Shorten</li></Link>

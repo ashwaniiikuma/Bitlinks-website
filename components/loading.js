@@ -11,6 +11,8 @@ export default function LoadingHandler({ children }) {
 
 useEffect(()=>{
 
+  const hasSeenSplash = sessionStorage.getItem("hasSeenSplash");
+
   const isMainWebsitePage = 
   pathname === "/" ||
    pathname.startsWith("/dashboard") ||
@@ -19,7 +21,7 @@ useEffect(()=>{
    pathname.startsWith("/privacy") ||
    pathname.startsWith("/shorten");
 
-   if(!isMainWebsitePage){
+   if(!isMainWebsitePage || hasSeenSplash){
 
     setDuration(0);
     setIsLoading(false);

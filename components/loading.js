@@ -1,34 +1,31 @@
 "use client";
 import { useState, useEffect } from "react";
 import SplashScreen from "./splashScreen";
-import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function LoadingHandler({ children }) {
-  const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(true);
   const [duration, setDuration] = useState(2500);
+const [isFirstVisit, setIsFirstVisit] = useState(false);
+   useEffect(() =>{
+    const hasSeenSplash = sessionStorage.getItem("hasSeenSplash");
 
-useEffect(()=>{
+    if(hasSeenSplash ===  "true"){
+      setIsLoading(false);
+      setDuration(0)
+      setIsFirstVisit(false)
+    }else{
+      setIsFirstVisit(true);
+      const timer = setTimeout(() =>{
+        setIsLoading(false);
+        sessionStorage.setItem("hasSeenSplash", "true");
+      }, 2500);
 
-  const hasSeenSplash = sessionStorage.getItem("hasSeenSplash");
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
-  const isMainWebsitePage = 
-  pathname === "/" ||
-   pathname.startsWith("/dashboard") ||
-   pathname.startsWith("/about") ||
-   pathname.startsWith("/contactus") ||
-   pathname.startsWith("/privacy") ||
-   pathname.startsWith("/shorten");
-
-   if(!isMainWebsitePage || hasSeenSplash){
-
-    setDuration(0);
-    setIsLoading(false);
-   }else{
-    setDuration(2500);
-   }
-},[pathname]);
+  if (isLoading) return <SplashScreen/>
 
 return(
   <>
